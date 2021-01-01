@@ -6,7 +6,18 @@
     <description>Recent content in Posts on SREvana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 31 Dec 2020 10:14:09 +0100</lastBuildDate><atom:link href="http://justdamilare.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 Jan 2021 09:56:54 +0100</lastBuildDate><atom:link href="http://justdamilare.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Load CSV files in Go</title>
+      <link>http://justdamilare.github.io/posts/load-csvs-in-go/</link>
+      <pubDate>Fri, 01 Jan 2021 09:56:54 +0100</pubDate>
+      
+      <guid>http://justdamilare.github.io/posts/load-csvs-in-go/</guid>
+      <description>This is a very easy way to open a CSV file line by line in Go. Suppose we have a CSV file pops.csv that looks like this
+   City Population     Lagos 21000000   Tokyo 37400000   Delhi 28500000   Rio de Janeiro 13300000    To read the file line by line,
+package main import ( &amp;#34;encoding/csv&amp;#34; &amp;#34;fmt&amp;#34; &amp;#34;io&amp;#34; &amp;#34;os&amp;#34; ) type CityPopulation struct { City string Population string } func check(e error) { if e !</description>
+    </item>
+    
     <item>
       <title>In the beginning</title>
       <link>http://justdamilare.github.io/posts/in-the-beginning/</link>

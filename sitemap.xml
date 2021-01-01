@@ -3,17 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://justdamilare.github.io/posts/in-the-beginning/</loc>
-    <lastmod>2020-12-31T10:14:09+01:00</lastmod>
+    <loc>http://justdamilare.github.io/posts/load-csvs-in-go/</loc>
+    <lastmod>2021-01-01T09:56:54+01:00</lastmod>
   </url>
   
   <url>
     <loc>http://justdamilare.github.io/posts/</loc>
-    <lastmod>2020-12-31T10:14:09+01:00</lastmod>
+    <lastmod>2021-01-01T09:56:54+01:00</lastmod>
   </url>
   
   <url>
     <loc>http://justdamilare.github.io/</loc>
+    <lastmod>2021-01-01T09:56:54+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://justdamilare.github.io/posts/in-the-beginning/</loc>
     <lastmod>2020-12-31T10:14:09+01:00</lastmod>
   </url>
   
