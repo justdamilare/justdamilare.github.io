@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SREvana</title>
+    <link>http://justdamilare.github.io/</link>
+    <description>Recent content on SREvana</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 31 Dec 2020 10:14:09 +0100</lastBuildDate><atom:link href="http://justdamilare.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>In the beginning</title>
+      <link>http://justdamilare.github.io/posts/in-the-beginning/</link>
+      <pubDate>Thu, 31 Dec 2020 10:14:09 +0100</pubDate>
+      
+      <guid>http://justdamilare.github.io/posts/in-the-beginning/</guid>
+      <description>In December 2020 - the year of the great pandemic :sunglasses:, I made my decision to pivot my focus to being a Site Reliability Engineer (SRE).
+What is Site Reliability Engineering? Perhaps Red Hat put it most elegantly:
+ Site reliability engineering (SRE) is a software engineering approach to IT operations. SRE teams use software as a tool to manage systems, solve problems, and automate operations tasks.
+ The concept started in Google in the 2003.</description>
+    </item>
+    
+  </channel>
+</rss>
