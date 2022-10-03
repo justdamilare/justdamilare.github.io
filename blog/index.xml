@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on Srevana - Damilare&#39;s Page</title>
+    <link>https://justdamilare.github.io/blog/</link>
+    <description>Recent content in Blogs on Srevana - Damilare&#39;s Page</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 04 Oct 2022 00:28:17 +0200</lastBuildDate><atom:link href="https://justdamilare.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Create Homebrew Taps for Private GitHub Repos</title>
+      <link>https://justdamilare.github.io/blog/private-homebrew/</link>
+      <pubDate>Tue, 04 Oct 2022 00:28:17 +0200</pubDate>
+      
+      <guid>https://justdamilare.github.io/blog/private-homebrew/</guid>
+      <description>I started a new job in July 2022. While the developer experience is great, one of the things that I missed at my new job was a CLI to rule them all (like I had at my old job). I thought of building an easily extensible CLI tool which I did with go and cobra. To handle distribution to the engineers, we decided to use both go install and homebrew.</description>
+    </item>
+    
+    <item>
+      <title>Goreleaser</title>
+      <link>https://justdamilare.github.io/blog/goreleaser/</link>
+      <pubDate>Tue, 04 Oct 2022 00:21:08 +0200</pubDate>
+      
+      <guid>https://justdamilare.github.io/blog/goreleaser/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Load CSV files in Go</title>
+      <link>https://justdamilare.github.io/blog/load-csvs-in-go/</link>
+      <pubDate>Fri, 01 Jan 2021 09:56:54 +0100</pubDate>
+      
+      <guid>https://justdamilare.github.io/blog/load-csvs-in-go/</guid>
+      <description>This is a very easy way to open a CSV file line by line in Go. Suppose we have a CSV file pops.csv that looks like this
+City Population Lagos 21000000 Tokyo 37400000 Delhi 28500000 Rio de Janeiro 13300000 To read the file line by line,
+package main import ( &amp;#34;encoding/csv&amp;#34; &amp;#34;fmt&amp;#34; &amp;#34;io&amp;#34; &amp;#34;os&amp;#34; ) type CityPopulation struct { City string Population string } func check(e error) { if e !</description>
+    </item>
+    
+    <item>
+      <title>In the beginning</title>
+      <link>https://justdamilare.github.io/blog/in-the-beginning/</link>
+      <pubDate>Thu, 31 Dec 2020 10:14:09 +0100</pubDate>
+      
+      <guid>https://justdamilare.github.io/blog/in-the-beginning/</guid>
+      <description>In December 2020 - the year of the great pandemic :sunglasses:, I made my decision to pivot my focus to being a Site Reliability Engineer (SRE).
+What is Site Reliability Engineering? Perhaps Red Hat put it most elegantly:
+Site reliability engineering (SRE) is a software engineering approach to IT operations. SRE teams use software as a tool to manage systems, solve problems, and automate operations tasks.
+The concept started in Google in the 2003.</description>
+    </item>
+    
+  </channel>
+</rss>

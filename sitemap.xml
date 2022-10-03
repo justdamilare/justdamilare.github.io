@@ -1,33 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
-    <loc>http://justdamilare.github.io/posts/load-csvs-in-go/</loc>
+    <loc>https://justdamilare.github.io/blog/</loc>
+    <lastmod>2022-10-04T00:28:17+02:00</lastmod>
+  </url><url>
+    <loc>https://justdamilare.github.io/blog/private-homebrew/</loc>
+    <lastmod>2022-10-04T00:28:17+02:00</lastmod>
+  </url><url>
+    <loc>https://justdamilare.github.io/</loc>
+    <lastmod>2022-10-04T00:28:17+02:00</lastmod>
+  </url><url>
+    <loc>https://justdamilare.github.io/blog/goreleaser/</loc>
+    <lastmod>2022-10-04T00:21:08+02:00</lastmod>
+  </url><url>
+    <loc>https://justdamilare.github.io/blog/load-csvs-in-go/</loc>
     <lastmod>2021-01-01T09:56:54+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://justdamilare.github.io/posts/</loc>
-    <lastmod>2021-01-01T09:56:54+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://justdamilare.github.io/</loc>
-    <lastmod>2021-01-01T09:56:54+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://justdamilare.github.io/posts/in-the-beginning/</loc>
+  </url><url>
+    <loc>https://justdamilare.github.io/blog/in-the-beginning/</loc>
     <lastmod>2020-12-31T10:14:09+01:00</lastmod>
+  </url><url>
+    <loc>https://justdamilare.github.io/categories/</loc>
+  </url><url>
+    <loc>https://justdamilare.github.io/tags/</loc>
   </url>
-  
-  <url>
-    <loc>http://justdamilare.github.io/categories/</loc>
-  </url>
-  
-  <url>
-    <loc>http://justdamilare.github.io/tags/</loc>
-  </url>
-  
 </urlset>
