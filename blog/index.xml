@@ -17,12 +17,15 @@
     </item>
     
     <item>
-      <title>Goreleaser</title>
+      <title>Publish Go Packages with Goreleaser</title>
       <link>https://justdamilare.github.io/blog/goreleaser/</link>
       <pubDate>Tue, 04 Oct 2022 00:21:08 +0200</pubDate>
       
       <guid>https://justdamilare.github.io/blog/goreleaser/</guid>
-      <description>IN PROGESS</description>
+      <description>Goreleaser is awesome. It&amp;rsquo;s a simple tool that allows you to release your go packages. Recently, my team and I used it with a company wide CLI tool that we built.
+In this tutorial, we&amp;rsquo;ll use goreleaser to automate the release of a simple go package.
+Installation On macOS, to install goreleaser, we can install using:
+go install github.com/goreleaser/goreleaser@latest Or we use the popular homebrew package manager for macOS and Linux with:</description>
     </item>
     
     <item>

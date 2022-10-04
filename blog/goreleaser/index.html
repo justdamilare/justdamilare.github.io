@@ -38,8 +38,11 @@ if (!doNotTrack) {
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 
-<meta property="og:title" content="Goreleaser" />
-<meta property="og:description" content="IN PROGESS" />
+<meta property="og:title" content="Publish Go Packages with Goreleaser" />
+<meta property="og:description" content="Goreleaser is awesome. It&rsquo;s a simple tool that allows you to release your go packages. Recently, my team and I used it with a company wide CLI tool that we built.
+In this tutorial, we&rsquo;ll use goreleaser to automate the release of a simple go package.
+Installation On macOS, to install goreleaser, we can install using:
+go install github.com/goreleaser/goreleaser@latest Or we use the popular homebrew package manager for macOS and Linux with:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://justdamilare.github.io/blog/goreleaser/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2022-10-04T00:21:08+02:00" />
@@ -47,8 +50,11 @@ if (!doNotTrack) {
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Goreleaser"/>
-<meta name="twitter:description" content="IN PROGESS"/>
+<meta name="twitter:title" content="Publish Go Packages with Goreleaser"/>
+<meta name="twitter:description" content="Goreleaser is awesome. It&rsquo;s a simple tool that allows you to release your go packages. Recently, my team and I used it with a company wide CLI tool that we built.
+In this tutorial, we&rsquo;ll use goreleaser to automate the release of a simple go package.
+Installation On macOS, to install goreleaser, we can install using:
+go install github.com/goreleaser/goreleaser@latest Or we use the popular homebrew package manager for macOS and Linux with:"/>
 
 
 <link rel="stylesheet" href="/bootstrap-5/css/bootstrap.min.css" media="all"><link rel="stylesheet" href="/css/header.css" media="all">
@@ -92,7 +98,7 @@ if (!doNotTrack) {
 <script defer src="/fontawesome-5/all-5.15.4.js"></script>
 
   <title>
-Goreleaser | Srevana - Damilare&#39;s Page
+Publish Go Packages with Goreleaser | Srevana - Damilare&#39;s Page
 
   </title>
 </head>
@@ -184,7 +190,7 @@ Goreleaser | Srevana - Damilare&#39;s Page
       <div class="col-sm-12 col-md-12 col-lg-9">
         <div class="pr-lg-4">
           <div class="title mb-5">
-            <h1 class="text-center mb-4">Goreleaser</h1>
+            <h1 class="text-center mb-4">Publish Go Packages with Goreleaser</h1>
             <div class="text-center">
                
               <small>|</small>
@@ -193,7 +199,116 @@ Goreleaser | Srevana - Damilare&#39;s Page
           </div>
           
           <article class="page-content  p-2">
-          <p>IN PROGESS</p>
+          <p><a href="https://goreleaser.com/">Goreleaser</a> is awesome. It&rsquo;s a simple tool that allows you to release your <em>go</em> packages. Recently, my team and I used it with a company wide CLI tool that we built.</p>
+<p>In this tutorial, we&rsquo;ll use <em>goreleaser</em> to automate the release of a simple <code>go</code> package.</p>
+<h2 id="installation">Installation</h2>
+<p>On macOS, to install <em>goreleaser</em>, we can install using:</p>
+<pre tabindex="0"><code>go install github.com/goreleaser/goreleaser@latest
+</code></pre><p>Or we use the popular <a href="https://brew.sh/"><em>homebrew</em></a> package manager for macOS and Linux with:</p>
+<pre tabindex="0"><code>brew install goreleaser/tap/goreleaser
+</code></pre><p>On Ubuntu Linux, we can use <code>apt</code>:</p>
+<pre tabindex="0"><code>echo &#39;deb [trusted=yes] https://repo.goreleaser.com/apt/ /&#39; | sudo tee /etc/apt/sources.list.d/goreleaser.list
+sudo apt update
+sudo apt install goreleaser
+</code></pre><p>More options can be found <a href="https://goreleaser.com/install/">here</a>.</p>
+<h2 id="create-package">Create Package</h2>
+<p>Create a new folder to house our project. Then initialize the modules with</p>
+<pre tabindex="0"><code>go mod init main 
+</code></pre><p>Next, we create a file called <code>main.go</code>. In <code>main.go</code>, copy and paste the following code:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>  println(<span style="color:#e6db74">&#34;This is a tutorial about Goreleaser!&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="initialize-goreleaser">Initialize Goreleaser</h2>
+<p>The next step is to setup <em>goreleaser</em>. To do this, we run:</p>
+<pre tabindex="0"><code>goreleaser init
+</code></pre><p>This command creates <code>.goreleaser.yaml</code> file in our directory. We&rsquo;ll take a closer look at this file.</p>
+<h2 id="update-goreleaseryaml">Update <code>.goreleaser.yaml</code></h2>
+<p>I have added a few more fields to the generated <code>.goreleaser.yaml</code> file. We&rsquo;ll go through the important parts.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">release</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">github</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">owner</span>: <span style="color:#ae81ff">justdamilare</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">mytool</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">before</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">hooks</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">go mod tidy</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">go generate ./...</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">builds</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">env</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">GO_VERSION=1.19</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">goos</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">linux</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">windows</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">darwin</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># replaces architecture naming in the archive name</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">archives</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">replacements</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">darwin</span>: <span style="color:#ae81ff">Darwin</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">linux</span>: <span style="color:#ae81ff">Linux</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">windows</span>: <span style="color:#ae81ff">Windows</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">386</span>: <span style="color:#ae81ff">i386</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">amd64</span>: <span style="color:#ae81ff">x86_64</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">format_overrides</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">goos</span>: <span style="color:#ae81ff">windows</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">format</span>: <span style="color:#ae81ff">zip</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">checksum</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name_template</span>: <span style="color:#e6db74">&#39;checksums.txt&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">snapshot</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name_template</span>: <span style="color:#e6db74">&#34;{{ incpatch .Version }}-next&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">changelog</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">sort</span>: <span style="color:#ae81ff">asc</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">filters</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">exclude</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#39;^docs:&#39;</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#39;^test:&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># upload binaries to gcloud bucket called `mytool`</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">blobs</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">provider</span>: <span style="color:#ae81ff">gs</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">bucket</span>: <span style="color:#ae81ff">mytool</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">folder</span>: <span style="color:#e6db74">&#34;{{ .Version }}&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># generate homebrew-tap  </span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">brews</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">justdamilare</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">tap</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">owner</span>: <span style="color:#ae81ff">mytool</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">name</span>: <span style="color:#ae81ff">homebrew-tap</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">folder</span>: <span style="color:#ae81ff">Formula</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">homepage</span>: <span style="color:#ae81ff">https://github.com/justdamilare/mytool</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">description</span>: <span style="color:#ae81ff">A simple go project</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># use custom download strategy in case the Github repository is private</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">download_strategy</span>: <span style="color:#ae81ff">GitHubPrivateRepositoryReleaseDownloadStrategy</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">custom_require</span>: <span style="color:#e6db74">&#34;../custom_download_strategy&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">test</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      </span>      <span style="color:#ae81ff">system &#34;#{bin}/mytool&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">install</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      </span>      <span style="color:#ae81ff">bin.install &#34;mytool&#34;</span>
+</span></span></code></pre></div><p>It should be noted that if <code>homebrew-tap</code> and <code>blobs</code> are not needed, the sections can be removed. If <code>homebrew-tap</code> is needed, a Githib repo called <code>homebrew-tap</code> should be created also.</p>
+<h2 id="release-package">Release Package</h2>
+<p>Finally, we can release our packages. To do that, we need to create a tag for our release on Git. For example, to create a tag for version <code>0.1.0</code>, we can run:</p>
+<pre tabindex="0"><code>git tag v0.1.0
+</code></pre><p>and</p>
+<pre tabindex="0"><code>git push origin v0.1.0
+</code></pre><p>Then in the directory with <code>main.go</code>, run:</p>
+<pre tabindex="0"><code>goreleaser release
+</code></pre><p>Goreleaser will build all the binaries. These binaries will be uploaded automatically to Github using the local GitHub credentials. The builds will also be located in a <code>/dist</code> folder in the home directory. If the <code>brew</code> publish method is included, a generated <code>*.rb</code> file will also be in the <code>/dist</code> folder. In case Goreleaser does not copy the generated <code>Formula</code> to the <code>homebrew-tap</code> repo automatically, it can be copied manually. You can see checkout how to publish the build to a private homebrew-tap <a href="https://blog.devgenius.io/create-homebrew-taps-for-private-github-repos-44daf2f4cff8">here</a></p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Install goreleaser</li>
+<li>Create <em>go</em> package</li>
+<li>Initialize Goreleaser with <code>goreleaser init</code></li>
+<li>Update <code>.goreleaser.yaml</code></li>
+<li>Release build by creating a tag with <code>git tag vX.X.X</code> and then run <code>goreleaser release</code></li>
+</ul>
 
           </article>
         </div>
@@ -206,7 +321,16 @@ Goreleaser | Srevana - Damilare&#39;s Page
                 Table Of Contents
               </h5>
               <div class="toc-content">
-                <nav id="TableOfContents"></nav>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#installation">Installation</a></li>
+    <li><a href="#create-package">Create Package</a></li>
+    <li><a href="#initialize-goreleaser">Initialize Goreleaser</a></li>
+    <li><a href="#update-goreleaseryaml">Update <code>.goreleaser.yaml</code></a></li>
+    <li><a href="#release-package">Release Package</a></li>
+    <li><a href="#summary">Summary</a></li>
+  </ul>
+</nav>
               </div>
           </aside>
           
@@ -219,17 +343,17 @@ Goreleaser | Srevana - Damilare&#39;s Page
             <div class="social-content">
               <ul class="list-inline">
                 <li class="list-inline-item text-center">
-                  <a target="_blank" href="https://twitter.com/share?text=Goreleaser&url=https%3a%2f%2fjustdamilare.github.io%2fblog%2fgoreleaser%2f">
+                  <a target="_blank" href="https://twitter.com/share?text=Publish%20Go%20Packages%20with%20Goreleaser&url=https%3a%2f%2fjustdamilare.github.io%2fblog%2fgoreleaser%2f">
                     <i class="fab fa-twitter"></i>
                   </a>
                 </li>
                 <li class="list-inline-item text-center">
-                  <a target="_blank" href="https://api.whatsapp.com/send?text=Goreleaser: https%3a%2f%2fjustdamilare.github.io%2fblog%2fgoreleaser%2f">
+                  <a target="_blank" href="https://api.whatsapp.com/send?text=Publish%20Go%20Packages%20with%20Goreleaser: https%3a%2f%2fjustdamilare.github.io%2fblog%2fgoreleaser%2f">
                     <i class="fab fa-whatsapp"></i>
                   </a>
                 </li>
                 <li class="list-inline-item text-center">
-                  <a target="_blank" href="mailto:?subject=Goreleaser&amp;body=Check out this site https%3a%2f%2fjustdamilare.github.io%2fblog%2fgoreleaser%2f">
+                  <a target="_blank" href="mailto:?subject=Publish%20Go%20Packages%20with%20Goreleaser&amp;body=Check out this site https%3a%2f%2fjustdamilare.github.io%2fblog%2fgoreleaser%2f">
                     <i class="fa fa-envelope"></i>
                   </a>
                 </li>
